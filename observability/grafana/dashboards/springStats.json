@@ -3296,8 +3296,8 @@
       "30d"
     ]
   },
-  "timezone": "",
-  "title": "Spring Boot 3.x Statistics",
+  "timezone": "browser",
+  "title": "Default Spring Boot Dashboard",
   "uid": "spring_boot_21",
   "version": 75,
   "weekStart": ""

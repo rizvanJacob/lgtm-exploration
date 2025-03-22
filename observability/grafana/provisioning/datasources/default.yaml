@@ -1,7 +1,7 @@
 apiVersion: 1
 
 datasources:
-  - name: Spring Micrometer App
+  - name: $PROMETHEUS_DS_NAME
     type: prometheus
     access: proxy
     url: http://$PROMETHEUS_HOST:$PROMETHEUS_PORT
