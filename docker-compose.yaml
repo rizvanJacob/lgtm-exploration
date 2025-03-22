@@ -13,8 +13,6 @@ services:
     build:
       context: ./observability/mockRequests
       dockerfile: Dockerfile
-    depends_on:
-      - spring-app
     container_name: http-request-bot
 
   prometheus:
