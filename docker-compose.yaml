@@ -7,3 +7,20 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
+    container_name: spring-micrometer-app
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    container_name: prometheus
+
+  grafana:
+    image: grafana/grafana:latest
+    depends_on:
+      - prometheus
+    ports:
+      - "3000:3000"
+    container_name: grafana
