@@ -12,4 +12,4 @@ RUN npm install
 COPY . .
 
 # Command to run the index.ts file
-CMD ["ts-node", "index.ts"]
+CMD ["npm", "run", "start"]

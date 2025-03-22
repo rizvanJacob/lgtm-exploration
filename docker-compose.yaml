@@ -9,6 +9,14 @@ services:
       - "8080:8080"
     container_name: spring-micrometer-app
 
+  mock-requests:
+    build:
+      context: ./observability/mockRequests
+      dockerfile: Dockerfile
+    depends_on:
+      - spring-app
+    container_name: http-request-bot
+
   prometheus:
     build:
       context: ./observability/prometheus
