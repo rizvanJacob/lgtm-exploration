@@ -1,5 +1,8 @@
 FROM prom/prometheus:latest
 ADD prometheus.yml /etc/prometheus/
+ENV SERVER_HOST="spring-micrometer-app" \
+    SERVER_PORT="8081"
+
 #
 #CMD ["--config.file=/etc/prometheus/prometheus.yml",
 #    "--storage.tsdb.path=/prometheus",

@@ -4,6 +4,6 @@ datasources:
   - name: Spring Micrometer App
     type: prometheus
     access: proxy
-    url: http://$HOST:$PORT
+    url: http://$PROMETHEUS_HOST:$PROMETHEUS_PORT
     isDefault: true
     editable: false

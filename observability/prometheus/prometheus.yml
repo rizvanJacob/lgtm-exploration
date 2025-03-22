@@ -5,4 +5,4 @@ scrape_configs:
   - job_name: 'spring-app'
     metrics_path: /actuator/prometheus
     static_configs:
-      - targets: ['spring-micrometer-app:8081']
+      - targets: ['$SERVER_HOST:$SERVER_PORT']

@@ -7,5 +7,5 @@ ENV GF_AUTH_ANONYMOUS_ENABLED="true" \
       GF_USERS_ALLOW_SIGN_UP="false" \
       GF_SECURITY_DISABLE_GRAVATAR="true" \
       GF_PATHS_PROVISIONING="/etc/grafana/provisioning" \
-      HOST="prometheus" \
-      PORT="8081"
+      PROMETHEUS_HOST="prometheus" \
+      PROMETHEUS_PORT="9090"
