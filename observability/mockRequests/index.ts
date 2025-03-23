@@ -7,15 +7,26 @@ const axiosInstance = axios.create({
   baseURL: `http://${host}:${port}`,
 });
 
+type Method = "GET" | "POST" | "PUT" | "DELETE";
+
 // Define your requests
 const requests: {
   endpoint: string;
-  method: "GET" | "POST" | "PUT" | "DELETE";
+  method: Method;
 }[] = [
-  { endpoint: "/wait/0", method: "GET" },
-  { endpoint: "/wait/1", method: "GET" },
-  { endpoint: "/wait/2", method: "GET" },
+
 ];
+
+const setupByIdRequests = () => {
+  for (let i = 0; i < 1000; i++) {
+    requests.push({ endpoint: "/wait", method: "GET" }),
+    requests.push({ endpoint: "/wait", method: "POST" }),
+
+    requests.push({ endpoint: "/wait/" + i, method: "GET" });
+    requests.push({ endpoint: "/wait/" + i, method: "PUT" });
+    requests.push({ endpoint: "/wait/" + i, method: "DELETE" });
+  }
+};
 
 // Function to select a random request
 function getRandomRequest() {
@@ -47,6 +58,10 @@ async function performRequest() {
       console.log(`${method} to ${endpoint} failed`);
     });
 }
+
+setupByIdRequests("GET");
+setupByIdRequests("PUT");
+setupByIdRequests("DELETE");
 
 // Run the request every 5 seconds
 setInterval(performRequest, 50);
