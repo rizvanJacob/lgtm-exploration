@@ -1,5 +1,6 @@
 package com.example.learning;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -14,9 +15,7 @@ public class LoggingSimulator {
     warnLogRate = 0.03f,
     infoLogRate = 0.3f;
     private final Random random = new Random();
-    private final ScheduledExecutorService executor;
-    public LoggingSimulator(){
-        this.executor = Executors.newScheduledThreadPool(1);
+    public LoggingSimulator(ScheduledExecutorService executor){
         executor.scheduleAtFixedRate(this::simulateLog, 0, 100, TimeUnit.MILLISECONDS);
     }
     private void simulateLog(){
