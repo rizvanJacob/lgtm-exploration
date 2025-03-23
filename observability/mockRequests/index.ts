@@ -13,16 +13,13 @@ type Method = "GET" | "POST" | "PUT" | "DELETE";
 const requests: {
   endpoint: string;
   method: Method;
-}[] = [
-
-];
+}[] = [];
 
 const setupByIdRequests = () => {
   for (let i = 0; i < 1000; i++) {
     requests.push({ endpoint: "/wait", method: "GET" }),
-    requests.push({ endpoint: "/wait", method: "POST" }),
-
-    requests.push({ endpoint: "/wait/" + i, method: "GET" });
+      requests.push({ endpoint: "/wait", method: "POST" }),
+      requests.push({ endpoint: "/wait/" + i, method: "GET" });
     requests.push({ endpoint: "/wait/" + i, method: "PUT" });
     requests.push({ endpoint: "/wait/" + i, method: "DELETE" });
   }
@@ -59,9 +56,7 @@ async function performRequest() {
     });
 }
 
-setupByIdRequests("GET");
-setupByIdRequests("PUT");
-setupByIdRequests("DELETE");
+setupByIdRequests();
 
 // Run the request every 5 seconds
 setInterval(performRequest, 50);
