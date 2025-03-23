@@ -36,5 +36,4 @@ out/
 ### VS Code ###
 .vscode/
 
-# commit .env since db is local
-#.env
+.env
